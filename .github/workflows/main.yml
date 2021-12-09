@@ -6,12 +6,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: SCP given file
-        run: scp index.html ${{ secrets.USER }}@${{ secrets.HOST_AND_LOCATION }}
-        #run: ${{ secrets.PASSWORD }}
-        env:
-          USER: ${{ secrets.USER }}
-          HOST: ${{ secrets.HOST_AND_LOCATION }}
-          PASSWORD: ${{ secrets.PASSWORD }}
+        run: |
+        scp index.html ${{ secrets.USER }}@${{ secrets.HOST_AND_LOCATION }}
+        ${{ secrets.PASSWORD }}
 
       - name: Test
         run: echo 'Mobile banana'
